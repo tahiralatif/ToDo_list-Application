@@ -20,27 +20,25 @@ let main = async() =>{
                 name: "option",
                 type: "list",
                 message: "\n choose an option what you want to do \n",
-                choices: ["Add Task" , chalk.red("Delete Task") , "Update Task" , "View Task" , chalk.red("Exit")]
+                choices: ["Add Task" , "Delete Task" , "Update Task" , "View Task" , "Exit"]
             }
         ]
     );
 
     if(optionSelect.option === "Add Task"){
         await addTasks();
-    }else if(optionSelect.option === chalk.redBright("Delete Task")){
+    }else if(optionSelect.option === "Delete Task"){
         await deleteTask()
     }else if (optionSelect.option === "Update Task") {
         await updateTask();
     }else if(optionSelect.option === "View Task"){
         await viewTask();
-    }else if(optionSelect.option === chalk.redBright("Exit")){
+    }else if(optionSelect.option === "Exit"){
         conditions = false;
-        console.log(chalk.blueBright(`\n**********Exit************\n`))
+        console.log(`\n**********Exit************\n`)
     }
     }
-   }
-    
-
+}
 // Use function to add new task in the list
 let addTasks = async() => {
     let newTask = await inquirer.prompt(
@@ -75,7 +73,7 @@ let deleteTask = async() => {
         ]
     );
     let deletedTask = todoList.splice(taskIndex.index - 1, 1);
-    console.log(`\n "${chalk.redBright(deletedTask)}" this task has been deleted Successfuly from your todo list\n`);
+    console.log(`\n "${chalk.red(deletedTask)}" this task has been deleted Successfuly from your todo list\n`);
 }
 // function to update a task:
 let updateTask = async () => {
